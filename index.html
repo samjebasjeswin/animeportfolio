@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMJEBAS | WordPress & Full-stack Developer</title>
+    <meta name="description"
+        content="Jeswin K - WordPress & Full-stack Developer crafting digital universes with Next.js, Python, and AI.">
+    <meta name="keywords" content="Full-stack Developer, WordPress Developer, Next.js, Python, AI, Computer Vision">
+    <meta name="author" content="Jeswin K - SAMJEBAS">
+    <meta property="og:title" content="SAMJEBAS | WordPress & Full-stack Developer">
+    <meta property="og:description"
+        content="Crafting digital universes with Next.js, architecting backends with Python.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo"><span class="logo-text">SAMJEBAS</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Let's Talk</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>Available for freelance work</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-label">SAMJEBAS</span>
+                    <span class="title-name">JESWIN K</span>
+                </h1>
+                <p class="hero-role">WordPress & Full-stack Developer</p>
+                <p class="hero-description">
+                    Crafting digital universes with <span class="highlight">Next.js</span>,
+                    architecting backends with <span class="highlight">Python</span>,
+                    and exploring <span class="highlight">AI & Computer Vision</span>.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Hire Me</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="#projects" class="btn btn-secondary"><span>View Projects</span></a>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://github.com/samjebas" target="_blank" class="social-link" aria-label="GitHub">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/samjebas" target="_blank" class="social-link"
+                        aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                    <a href="mailto:jeswinsam287@gmail.com" class="social-link" aria-label="Email">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                    </a>
+                    <a href="tel:+918925091475" class="social-link" aria-label="Phone">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="avatar-container">
+                    <div class="avatar-glow"></div>
+                    <div class="avatar-ring"></div>
+                    <div class="avatar-image">
+                        <img src="assets/anime-avatar.png" alt="Jeswin K - Developer Avatar" class="avatar-img">
+                    </div>
+                    <div class="floating-badge badge-exp">
+                        <span class="badge-number">1+</span>
+                        <span class="badge-text">Years Exp</span>
+                    </div>
+                    <div class="floating-badge badge-projects">
+                        <span class="badge-number">7+</span>
+                        <span class="badge-text">Projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Focus Section -->
+    <section class="focus-section" id="focus">
+        <div class="container">
+            <div class="focus-card">
+                <div class="focus-header">
+                    <span class="focus-label"><span class="pulse-dot"></span>Coding session</span>
+                    <span class="focus-tag">Current Focus</span>
+                </div>
+                <h2 class="focus-title">Next.js Development.</h2>
+                <p class="focus-quote">"Currently deep in Next.js for my upcoming <span class="highlight">Premium
+                        E-commerce platform</span>."</p>
+                <p class="focus-description">I'm revolutionizing how we think about online shopping by blending
+                    artificial intelligence with immersive 3D interfaces. No more boring grids—we're talking about a
+                    fluid, cinematic shopping experience that reacts to your vibe.</p>
+                <div class="focus-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">AI</div>
+                        <span>Personalized Recommendations</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">3D</div>
+                        <span>Interactive Product Showcase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Samjebas</span>
+                <h2 class="section-title">THE<br><span class="gradient-text">FULL-STACK MIND.</span></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-content">
+                    <div class="about-intro">
+                        <span class="intro-label">Introduction</span>
+                        <h3 class="intro-title">The<br><span class="gradient-text">Digital Architect.</span></h3>
+                        <p class="intro-subtitle">Building powerful websites with a clean design.</p>
+                    </div>
+                    <p class="about-text">I'm a <span class="highlight">WordPress & Full-stack Developer</span> at <span
+                            class="highlight">SVR GLOBAL SOLUTIONS INDIA</span>. With a background in B.Tech CSE, I
+                        specialize in building high-performance systems and modern user experiences using Next.js.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <span class="stat-label">Experience</span>
+                        <div class="stat-value">
+                            <span class="stat-number" data-count="1">0</span>
+                            <span class="stat-plus">+</span>
+                        </div>
+                        <span class="stat-text">Year Experience</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Projects</span>
+                        <div class="stat-value">
+                            <span class="stat-number" data-count="7">0</span>
+                            <span class="stat-plus">+</span>
+                        </div>
+                        <span class="stat-text">Deployed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-tag">Expertise</span>
+                <h2 class="section-title"><span class="gradient-text">Technical Stack.</span></h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <span class="category-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg></span>
+                        Frontend
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">Javascript</span>
+                        <span class="skill-tag">TailwindCSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <span class="category-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <rect x="4" y="4" width="16" height="16" rx="2" />
+                                <rect x="9" y="9" width="6" height="6" />
+                            </svg></span>
+                        Backend
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">REST & GraphQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <span class="category-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                            </svg></span>
+                        AI & CV
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">MediaPipe</span>
+                        <span class="skill-tag">Tesseract</span>
+                        <span class="skill-tag">Pandas</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <span class="category-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                            </svg></span>
+                        Tools
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">DevTools</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-tag">Showcase</span>
+                <h2 class="section-title"><span class="gradient-text">Project Highlights.</span></h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card featured">
+                    <div class="project-image">
+                        <div class="project-placeholder"><span>E-commerce</span></div>
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Visionary E-commerce</h3>
+                        <p class="project-description">A Next.js full-stack platform revolutionizing shopping with 3D
+                            interfaces and AI-driven personalization for SVR Global.</p>
+                        <div class="project-tags"><span class="project-tag">Next.js</span><span
+                                class="project-tag">Three.js</span><span class="project-tag">AI</span><span
+                                class="project-tag">TailwindCSS</span></div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder"><span>African Valve</span></div>
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">African Valve</h3>
+                        <p class="project-description">Architected a high-performance industrial ecosystem. Integrated
+                            Next.js frontend with WordPress via GraphQL.</p>
+                        <div class="project-tags"><span class="project-tag">Next.js</span><span
+                                class="project-tag">GraphQL</span><span class="project-tag">WordPress</span></div>
+                        <a href="https://africanvalve.com" target="_blank" class="project-link">Visit Project <svg
+                                width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder"><span>Speciality Valve</span></div>
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Speciality Valve</h3>
+                        <p class="project-description">Engineered complex backend logic and custom UI components using
+                            PHP and CSS for a major industrial manufacturer.</p>
+                        <div class="project-tags"><span class="project-tag">PHP</span><span
+                                class="project-tag">CSS</span><span class="project-tag">WordPress</span></div>
+                        <a href="#" class="project-link">Visit Project <svg width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder"><span>UAE Valve</span></div>
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">UAE Valve</h3>
+                        <p class="project-description">Developed a mission-critical regional platform optimized for
+                            performance and high-ranking search visibility.</p>
+                        <div class="project-tags"><span class="project-tag">WordPress</span><span
+                                class="project-tag">SEO</span><span class="project-tag">Performance</span></div>
+                        <a href="#" class="project-link">Visit Project <svg width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder"><span>ANPR</span></div>
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">ANPR Traffic Intelligence</h3>
+                        <p class="project-description">An advanced license plate recognition system utilizing Computer
+                            Vision and Tesseract for real-time data retrieval.</p>
+                        <div class="project-tags"><span class="project-tag">Python</span><span
+                                class="project-tag">OpenCV</span><span class="project-tag">Tesseract</span><span
+                                class="project-tag">Pandas</span></div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder"><span>Gesture AI</span></div>
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Autonomous Signal Gesture Recognition</h3>
+                        <p class="project-description">A deep learning-powered gesture recognition system for autonomous
+                            vehicle interaction using TensorFlow.</p>
+                        <div class="project-tags"><span class="project-tag">TensorFlow</span><span
+                                class="project-tag">MediaPipe</span><span class="project-tag">AI</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience-section" id="experience">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-tag">Journey</span>
+                <h2 class="section-title"><span class="gradient-text">Experience.</span></h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">OCT 2025 - PRESENT</span>
+                        <h3 class="timeline-title">WordPress & Full-stack Developer</h3>
+                        <span class="timeline-company">SVR GLOBAL SOLUTIONS INDIA</span>
+                        <p class="timeline-description">Began as a Developer Trainee in October 2025 and transitioned to
+                            Full-time status in January 2026. Delivering full-stack solutions with Next.js, GraphQL,
+                            MySQL, and REST APIs for industrial-grade platforms.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">JAN 2025 - MAR 2025</span>
+                        <h3 class="timeline-title">Software Engineer Intern</h3>
+                        <span class="timeline-company">WORKCOHOL | CHENNAI</span>
+                        <p class="timeline-description">Contributed to real-world projects using Python, Django, MySQL,
+                            and React.js. Focused on creating RESTful APIs, database integration, and performance
+                            optimization within an agile team environment.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">JUNE 2022 - JULY 2022</span>
+                        <h3 class="timeline-title">Web Development Intern</h3>
+                        <span class="timeline-company">LIVE STREAM TECHNOLOGIES | COIMBATORE</span>
+                        <p class="timeline-description">Gained hands-on experience in web development using HTML, CSS,
+                            Python, and MySQL. Developed responsive pages and worked on Python-based backend
+                            development, including REST APIs and user authentication.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-content">
+                    <span class="section-tag">Connect</span>
+                    <h2 class="contact-title">Start a <span class="gradient-text">Project.</span></h2>
+                    <p class="contact-subtitle">Let's build something that shakes the industry.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:jeswinsam287@gmail.com" class="contact-value">jeswinsam287@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Phone</span>
+                            <a href="tel:+918925091475" class="contact-value">+91 8925091475</a>
+                        </div>
+                    </div>
+                    <a href="mailto:jeswinsam287@gmail.com" class="btn btn-primary btn-large">
+                        <span>CONTACT ME NOW</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="contact-visual">
+                    <div class="contact-orbs">
+                        <div class="contact-orb orb-1"></div>
+                        <div class="contact-orb orb-2"></div>
+                        <div class="contact-orb orb-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">© 2026 <span class="highlight">SAMJEBAS</span>. Engineered with Passion.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/samjebas" target="_blank" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/samjebas" target="_blank" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
