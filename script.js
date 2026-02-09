@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initActiveNavLink();
     initContactModal();
+    initCertificates();
 });
 
 // ============================================
@@ -62,8 +63,6 @@ function initContactModal() {
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData.entries());
 
-        console.log('Form Submitted:', data);
-
         // Show success state
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalBtnContent = submitBtn.innerHTML;
@@ -71,22 +70,102 @@ function initContactModal() {
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span>SENDING...</span>';
 
-        // Simulate API call
-        setTimeout(() => {
-            submitBtn.innerHTML = '<span>MESSAGE SENT!</span>';
-            submitBtn.style.background = '#00ff88';
-            submitBtn.style.boxShadow = '0 0 20px rgba(0, 255, 136, 0.4)';
+        // SEND TO FORMSUBMIT (Direct to jeswinsam287@gmail.com)
+        const formDataObj = new FormData(contactForm);
+        formDataObj.append('_captcha', 'false'); // Disable captcha for AJAX
 
-            // Reset form and close modal after delay
-            setTimeout(() => {
-                contactForm.reset();
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnContent;
-                submitBtn.style.background = '';
-                submitBtn.style.boxShadow = '';
-                closeModal();
-            }, 2000);
-        }, 1500);
+        fetch('https://formsubmit.co/ajax/jeswinsam287@gmail.com', {
+            method: 'POST',
+            body: formDataObj,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    return response.text().then(text => { throw new Error(text) });
+                }
+                return response.json();
+            })
+            .then(data => {
+                // FormSubmit returns {success: "true", message: "..."}
+                if (data.success === "true" || data.success === true) {
+                    submitBtn.innerHTML = '<span>MESSAGE SENT!</span>';
+                    submitBtn.style.background = '#00ff88';
+                    submitBtn.style.boxShadow = '0 0 20px rgba(0, 255, 136, 0.4)';
+
+                    // Reset form and close modal after delay
+                    setTimeout(() => {
+                        contactForm.reset();
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnContent;
+                        submitBtn.style.background = '';
+                        submitBtn.style.boxShadow = '';
+                        closeModal();
+                    }, 2000);
+                } else {
+                    // Throw the actual message from FormSubmit (e.g. "Check your email to activate")
+                    throw new Error(data.message || "Submission failed");
+                }
+            })
+            .catch(error => {
+                submitBtn.innerHTML = '<span>ERROR!</span>';
+                submitBtn.style.background = '#ff2d75';
+                console.error('Submission Error:', error);
+
+                // Show the EXACT error message to the user
+                alert("FORM ERROR: " + error.message);
+
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnContent;
+                    submitBtn.style.background = '';
+                }, 3000);
+            });
+    });
+}
+
+// ============================================
+// CERTIFICATES MODAL
+// ============================================
+function initCertificates() {
+    const modal = document.getElementById('certModal');
+    const modalImg = document.getElementById('img01');
+    const captionText = document.getElementById('caption');
+    const cards = document.querySelectorAll('.cert-card');
+    const closeBtn = document.querySelector('.cert-modal-close');
+
+    if (!modal || !modalImg || !cards || !closeBtn) return;
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const fullImgPath = card.getAttribute('data-full');
+            const title = card.querySelector('.cert-title').textContent;
+
+            modal.style.display = "block";
+            modalImg.src = fullImgPath;
+            captionText.innerHTML = title;
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    const closeModal = () => {
+        modal.style.display = "none";
+        document.body.style.overflow = '';
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === "block") {
+            closeModal();
+        }
     });
 }
 
