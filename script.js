@@ -19,18 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
 // CONTACT MODAL LOGIC
 // ============================================
 function initContactModal() {
-    const contactBtn = document.getElementById('contactBtn');
+    const contactBtns = document.querySelectorAll('.contact-trigger');
     const contactModal = document.getElementById('contactModal');
     const modalClose = document.getElementById('modalClose');
     const contactForm = document.getElementById('contactForm');
 
-    if (!contactBtn || !contactModal || !modalClose || !contactForm) return;
+    if (contactBtns.length === 0 || !contactModal || !modalClose || !contactForm) return;
 
     // Open modal
-    contactBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        contactModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+    contactBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
     });
 
     // Close modal
