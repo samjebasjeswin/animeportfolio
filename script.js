@@ -11,37 +11,114 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounterAnimation();
     initSmoothScroll();
     initActiveNavLink();
+    initContactModal();
 });
+
+// ============================================
+// CONTACT MODAL LOGIC
+// ============================================
+function initContactModal() {
+    const contactBtn = document.getElementById('contactBtn');
+    const contactModal = document.getElementById('contactModal');
+    const modalClose = document.getElementById('modalClose');
+    const contactForm = document.getElementById('contactForm');
+
+    if (!contactBtn || !contactModal || !modalClose || !contactForm) return;
+
+    // Open modal
+    contactBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        contactModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
+    // Close modal
+    const closeModal = () => {
+        contactModal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    modalClose.addEventListener('click', closeModal);
+
+    // Close on outside click
+    contactModal.addEventListener('click', (e) => {
+        if (e.target === contactModal) {
+            closeModal();
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && contactModal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    // Form submission
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Get form data
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData.entries());
+
+        console.log('Form Submitted:', data);
+
+        // Show success state
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnContent = submitBtn.innerHTML;
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>SENDING...</span>';
+
+        // Simulate API call
+        setTimeout(() => {
+            submitBtn.innerHTML = '<span>MESSAGE SENT!</span>';
+            submitBtn.style.background = '#00ff88';
+            submitBtn.style.boxShadow = '0 0 20px rgba(0, 255, 136, 0.4)';
+
+            // Reset form and close modal after delay
+            setTimeout(() => {
+                contactForm.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnContent;
+                submitBtn.style.background = '';
+                submitBtn.style.boxShadow = '';
+                closeModal();
+            }, 2000);
+        }, 1500);
+    });
+}
 
 // ============================================
 // CURSOR GLOW EFFECT
 // ============================================
 function initCursorGlow() {
     const cursorGlow = document.getElementById('cursorGlow');
-    
+
     if (!cursorGlow) return;
-    
+
     let mouseX = 0;
     let mouseY = 0;
     let currentX = 0;
     let currentY = 0;
-    
+
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
     });
-    
+
     function animate() {
         // Smooth follow effect
         currentX += (mouseX - currentX) * 0.1;
         currentY += (mouseY - currentY) * 0.1;
-        
+
         cursorGlow.style.left = currentX + 'px';
         cursorGlow.style.top = currentY + 'px';
-        
+
         requestAnimationFrame(animate);
     }
-    
+
     animate();
 }
 
@@ -50,20 +127,20 @@ function initCursorGlow() {
 // ============================================
 function initNavbar() {
     const navbar = document.getElementById('navbar');
-    
+
     if (!navbar) return;
-    
+
     let lastScroll = 0;
-    
+
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
-        
+
         if (currentScroll > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-        
+
         lastScroll = currentScroll;
     });
 }
@@ -74,15 +151,15 @@ function initNavbar() {
 function initMobileNav() {
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
-    
+
     if (!navToggle || !navLinks) return;
-    
+
     navToggle.addEventListener('click', () => {
         navToggle.classList.toggle('active');
         navLinks.classList.toggle('active');
         document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
     });
-    
+
     // Close menu when clicking a link
     navLinks.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
@@ -101,17 +178,17 @@ function initScrollReveal() {
         '.section-header, .focus-card, .about-content, .stat-card, ' +
         '.skill-category, .project-card, .timeline-item, .contact-content'
     );
-    
+
     revealElements.forEach(el => {
         el.classList.add('reveal');
     });
-    
+
     const observerOptions = {
         root: null,
         rootMargin: '0px',
         threshold: 0.1
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -120,7 +197,7 @@ function initScrollReveal() {
             }
         });
     }, observerOptions);
-    
+
     revealElements.forEach(el => observer.observe(el));
 }
 
@@ -129,13 +206,13 @@ function initScrollReveal() {
 // ============================================
 function initCounterAnimation() {
     const counters = document.querySelectorAll('.stat-number');
-    
+
     const observerOptions = {
         root: null,
         rootMargin: '0px',
         threshold: 0.5
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -146,7 +223,7 @@ function initCounterAnimation() {
             }
         });
     }, observerOptions);
-    
+
     counters.forEach(counter => observer.observe(counter));
 }
 
@@ -154,11 +231,11 @@ function animateCounter(element, target) {
     let current = 0;
     const duration = 2000;
     const stepTime = duration / target;
-    
+
     const timer = setInterval(() => {
         current++;
         element.textContent = current;
-        
+
         if (current >= target) {
             clearInterval(timer);
             element.textContent = target;
@@ -171,18 +248,18 @@ function animateCounter(element, target) {
 // ============================================
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (!targetElement) return;
-            
+
             const navbarHeight = document.getElementById('navbar').offsetHeight;
             const targetPosition = targetElement.offsetTop - navbarHeight;
-            
+
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
@@ -197,21 +274,21 @@ function initSmoothScroll() {
 function initActiveNavLink() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-    
+
     window.addEventListener('scroll', () => {
         let current = '';
         const navbarHeight = document.getElementById('navbar').offsetHeight;
-        
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop - navbarHeight - 100;
             const sectionHeight = section.offsetHeight;
-            
-            if (window.pageYOffset >= sectionTop && 
+
+            if (window.pageYOffset >= sectionTop &&
                 window.pageYOffset < sectionTop + sectionHeight) {
                 current = section.getAttribute('id');
             }
         });
-        
+
         navLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href') === `#${current}`) {
@@ -227,7 +304,7 @@ function initActiveNavLink() {
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const orbs = document.querySelectorAll('.hero-orb');
-    
+
     orbs.forEach((orb, index) => {
         const speed = (index + 1) * 0.1;
         orb.style.transform = `translateY(${scrolled * speed}px)`;
@@ -240,7 +317,7 @@ window.addEventListener('scroll', () => {
 function typeWriter(element, text, speed = 100) {
     let i = 0;
     element.textContent = '';
-    
+
     function type() {
         if (i < text.length) {
             element.textContent += text.charAt(i);
@@ -248,7 +325,7 @@ function typeWriter(element, text, speed = 100) {
             setTimeout(type, speed);
         }
     }
-    
+
     type();
 }
 
@@ -260,10 +337,10 @@ document.querySelectorAll('.btn-primary').forEach(btn => {
         const rect = btn.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        
+
         btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
     });
-    
+
     btn.addEventListener('mouseleave', () => {
         btn.style.transform = 'translate(0, 0)';
     });
@@ -277,16 +354,16 @@ document.querySelectorAll('.project-card, .stat-card, .skill-category').forEach(
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        
+
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        
+
         const rotateX = (y - centerY) / 20;
         const rotateY = (centerX - x) / 20;
-        
+
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
     });
-    
+
     card.addEventListener('mouseleave', () => {
         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
     });
