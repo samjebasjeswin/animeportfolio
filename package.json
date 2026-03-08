@@ -1,14 +1,16 @@
 {
   "name": "anime-portfolio",
-  "version": "1.0.0",
+  "version": "16.0.10",
   "description": "Anime style portfolio website",
-  "main": "index.html",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
-  "devDependencies": {
-    "vite": "^5.0.0"
+  "devDependencies": {},
+  "dependencies": {
+    "next": "16.0.10",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   }
 }
